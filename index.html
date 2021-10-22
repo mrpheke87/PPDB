@@ -22,7 +22,7 @@
 	<div class="main">
 		<div class="w3_agile_main_grids">
 			<div id='progress'><div id='progress-complete'></div></div>
-			<form id="SignupForm" name="google-sheet" class="agile_form"method="post">
+			<form id="SignupForm" name="google-sheet" class="agile_form"method="post"> 
 				<fieldset>
 					<h3><img src="images/twh.png"style="margin-top: -15px;"><br>
 					SDN 001 BABULU</h3>
@@ -163,14 +163,14 @@
 				<div class="form-group agileits_ryuzak_form w3_agileits_margin">
 						<div class="wthree_input">
 							<i class="fa fa-user" aria-hidden="true"></i>
-							<input id="Nama_Wali" type="text" name="Nama_Wali" class="form-control" placeholder="Nama Wali" required="" />
+							<input id="Nama_Wali" type="text" name="Nama_Wali" class="form-control" placeholder="Nama Wali" />
 						</div>
 					</div>
 
 					<div class="form-group agileits_ryuzak_form">
 						<div class="wthree_input">
 							<i class="fa fa-calendar" aria-hidden="true"></i>
-							<input id="Tempat_Tgl_Lahir_Wali" type="text" name="Tempat_Tgl_Lahir_Wali" class="form-control" placeholder="Tempat & Tgl Lahir Wali" required="" />
+							<input id="Tempat_Tgl_Lahir_Wali" type="text" name="Tempat_Tgl_Lahir_Wali" class="form-control" placeholder="Tempat & Tgl Lahir Wali"/>
 						</div>
 					</div> 
 
@@ -188,7 +188,7 @@
 						<div class="form-group agileits_ryuzak_form">
 						<div class="wthree_input">
 							<i class="fa fa-globe" aria-hidden="true"></i>
-							<input id="Alamat_Wali" type="text" name="Alamat_Wali" class="form-control" placeholder="Alamat Tempat Tinggal Wali" required="" />
+							<input id="Alamat_Wali" type="text" name="Alamat_Wali" class="form-control" placeholder="Alamat Tempat Tinggal Wali"/>
 						</div>
 					</div>
 
@@ -210,7 +210,7 @@
 						<div class="form-group agileits_ryuzak_form">
 						<div class="wthree_input">
 							<i class="fa fa-building-o" aria-hidden="true"></i>
-							<input id="Pekerjaan_Wali" type="text" name="Pekerjaan_Wali" class="form-control" placeholder="Pekerjaan Wali" required="" />
+							<input id="Pekerjaan_Wali" type="text" name="Pekerjaan_Wali" class="form-control" placeholder="Pekerjaan Wali"/>
 						</div>
 					</div>
 
@@ -218,19 +218,16 @@
 					<div class="form-group agileits_ryuzak_form w3_agileits_margin">
 						<div class="wthree_input">
 							<i class="fa fa-phone" aria-hidden="true"></i>
-							<input id="Kontak_Wali" type="text" name="Kontak_Wali" class="form-control" placeholder="No.HP Wali" required="" />
+							<input id="Kontak_Wali" type="text" name="Kontak_Wali" class="form-control" placeholder="No.HP Wali"/>
 						</div>
-					</div>
+					</div>	   
 				<div class="clear"> </div>
+				<div id="form_alerts"style="color:navy;font-weight: bolder;background-color: lightblue;"></div>
 				</fieldset>
-
 				<p>
 					<button id="SaveAccount" type="submit" class="btn btn-primary agileinfo_primary submit">Submit Form</button>
 				</p>
-
-			   <div id="form_alerts"style="color:navy;font-weight: bolder;"></div>
 			</form>		
-
 			<div class="agileits_copyright">
 				<p>© 2021 SDN 001 Babulu. All rights reserved</p>
 			</div>
@@ -238,13 +235,13 @@
 	</div>
 	 <script>
     	  const scriptURL = 'https://script.google.com/macros/s/AKfycbyW1rUTzoTuM1WXYAESqqnoPfKMdiymRAlmtc6Cbs40b2_nBoWFxH_6CzgXvNatp9wb/exec'
-        const form = document.forms['google-sheet']
-        
+        const form = document.forms['google-sheet']  
         form.addEventListener('submit', e => {
             e.preventDefault()
             fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-            .then(response => $("#form_alerts").html("<div class='alert alert-success'>Data berhasil dikirim.</div>"))
+            .then(response => $("#form_alerts").html("<div class='alert alert-success'>Data berhasil dikirim!</div>"))
             .catch(error => $("#form_alerts").html("<div class='alert alert-danger'>Data gagal terkirim!.</div>"))
+             document.getElementById("SignupForm").reset();
         })
     </script>
 	<script src="js/jquery.validate.min.js"></script>
